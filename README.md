@@ -17,6 +17,7 @@ replacement with emoji, etc.
     * Fear
     * Happiness
     * Sadness
+    * Neutral (update)
 * Front face and side face are okay.
 * You need to crop the image to a resolution ratio of roughly 1:1.5 (width:height), since the
   program will resize all images to a fixed size while not keeping the
