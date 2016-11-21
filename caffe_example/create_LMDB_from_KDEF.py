@@ -1,5 +1,4 @@
 import os
-import shutil
 import numpy as np
 import caffe
 import lmdb
@@ -10,8 +9,8 @@ from PIL import Image
 This script will create a training lmdb and a test lmdb for KDEF database, and
 the lmdb is ready for training in Caffe.
 """
-train_map_size = 8000000000 # the max size of the database, in bytes
-test_map_size = 60000000 # the max size of the database, in bytes
+train_map_size  = 8000000000 # the max size of the database, in bytes
+test_map_size   = 600000000 # the max size of the database, in bytes
 
 label_ref = ['AF', 'AN', 'DI', 'HA', 'NE', 'SA']
 
@@ -47,15 +46,15 @@ def create_lmdb(img_src, db_name, map_size):
             if label == None:
                 continue
             img = np.array(Image.open(src))
+            img = np.transpose(img, [2, 0, 1])
             datum = caffe.proto.caffe_pb2.Datum()
-            datum.channels = img.shape[2]
-            datum.height = img.shape[0]
-            datum.width = img.shape[1]
+            datum.channels = img.shape[0]
+            datum.height = img.shape[1]
+            datum.width = img.shape[2]
             datum.data = img.tostring()
             datum.label = label
             str_id = '{:08}'.format(i)
             txn.put(str_id, datum.SerializeToString())
-            print '%d image added' %(i)
     print db_name, 'created.'
 
 if __name__ == '__main__':
@@ -63,5 +62,9 @@ if __name__ == '__main__':
     print '%d images loaded' %(len(img_src))
     train_img_src = img_src[:4400]
     test_img_src = img_src[4400:]
+    print 'Creating training database, this will take a few minutes, please be patient!'
+    print 'If the program crashed, try increase train_map_size'
     create_lmdb(train_img_src, 'KDEF_train_lmdb', train_map_size)
+    print 'Creating testing database, this will take less than a minute'
+    print 'If the program crashed, try increase test_map_size'
     create_lmdb(test_img_src, 'KDEF_test_lmdb', test_map_size)
