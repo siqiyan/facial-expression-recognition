@@ -3,6 +3,10 @@
 Use caffe to train a simple multi-layered convolutional net. This is a
 preparation for fine-tuning deeper Residual Net by He et al.
 
+The model and the solver come from the official Caffe examples, I did some
+minor modifications to the parameters to fit my GPU. See details here: 
+https://github.com/BVLC/caffe/tree/master/examples/mnist
+
 ## Usage
 
 First you need to install Caffe, which is very complicated, and I found the
