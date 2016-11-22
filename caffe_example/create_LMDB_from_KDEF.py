@@ -4,6 +4,7 @@ import caffe
 import lmdb
 from random import shuffle
 from PIL import Image
+from scipy.misc import imresize
 
 """
 This script will create a training lmdb and a test lmdb for KDEF database, and
@@ -12,13 +13,16 @@ the lmdb is ready for training in Caffe.
 train_map_size  = 8000000000 # the max size of the database, in bytes
 test_map_size   = 600000000 # the max size of the database, in bytes
 
+img_height  = 135 # output image height
+img_width   = 100 # output image width
+
 label_ref = ['AF', 'AN', 'DI', 'HA', 'NE', 'SA']
 
 def parse_label(filename):
     label = filename[4:6]
     algle = filename[6:8]
     if not label in label_ref:
-        print filename, label, 'unknown label'
+        # print filename, label, 'unknown label'
         return None
     return label_ref.index(label)
 
@@ -46,6 +50,7 @@ def create_lmdb(img_src, db_name, map_size):
             if label == None:
                 continue
             img = np.array(Image.open(src))
+            img = imresize(img, [img_height, img_width])
             img = np.transpose(img, [2, 0, 1])
             datum = caffe.proto.caffe_pb2.Datum()
             datum.channels = img.shape[0]
