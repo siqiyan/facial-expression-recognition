@@ -5,6 +5,7 @@ import lmdb
 from random import shuffle
 from PIL import Image
 from scipy.misc import imresize
+import matplotlib.pyplot as plt
 
 """
 This script will create a training lmdb and a test lmdb for KDEF database, and
@@ -13,7 +14,7 @@ the lmdb is ready for training in Caffe.
 train_map_size  = 8000000000 # the max size of the database, in bytes
 test_map_size   = 600000000 # the max size of the database, in bytes
 
-img_height  = 135 # output image height
+img_height  = 100 # output image height
 img_width   = 100 # output image width
 
 # label_ref = ['AF', 'AN', 'DI', 'HA', 'NE', 'SA']
@@ -44,6 +45,16 @@ def load_all_images_and_shuffle():
     shuffle(img_src)
     return img_src
 
+def crop_image(img, crop_ratio):
+    h, w, _ = img.shape
+    crop_len = int(np.round(w / 2 * crop_ratio))
+    mid_h = int(np.round(h / 2))
+    mid_w = int(np.round(w / 2))
+    img = img[mid_h - crop_len:mid_h + crop_len + 1,
+            mid_w - crop_len:mid_w + crop_len + 1, :]
+    return img
+    
+
 def create_lmdb(img_src, db_name, map_size):
     count = 0
     env = lmdb.open(db_name, map_size=map_size)
@@ -55,6 +66,7 @@ def create_lmdb(img_src, db_name, map_size):
             if label == None:
                 continue
             img = np.array(Image.open(src))
+            img = crop_image(img, 0.8)
             img = imresize(img, [img_height, img_width])
             img = np.transpose(img, [2, 0, 1])
             datum = caffe.proto.caffe_pb2.Datum()
