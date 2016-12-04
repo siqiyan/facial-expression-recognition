@@ -7,9 +7,15 @@ import matplotlib.pyplot as plt
 
 
 def process(img):
+	
+
 	out = np.copy(img)
+
 	if int(0.5+ random()):
-		out = random_crop(img)
+		out = random_noise(out)
+
+	if int(0.5+ random()):
+		out = random_crop(out)
 
 	if int(0.5+ random()):		
 		out = random_pos(out)
@@ -96,6 +102,15 @@ def jitter_contrast(img):
 
 	return out
 
+def random_noise(img):
+	noise = np.zeros(img.shape, np.uint8)
+	# cv2.randn(noise,(0),(99),)
+	alpha = 0.1*random()
+	cv2.randn(noise, np.zeros(3), np.ones(3)*255*alpha)
+ 
+	out = img + noise
+
+	return out
 
 if __name__ == '__main__':
 	img = cv2.imread('face.jpg')
