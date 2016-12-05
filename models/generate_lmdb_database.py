@@ -6,6 +6,7 @@ from random import shuffle
 from PIL import Image
 from scipy.misc import imresize
 import matplotlib.pyplot as plt
+import data_augment
 
 """
 This script will create a training lmdb and a test lmdb for KDEF database, and
@@ -75,16 +76,21 @@ def create_lmdb(img_src, db_name, map_size):
             if label == None:
                 continue
             img = np.array(Image.open(src))
-            img = image_preprocess(img)
-            datum = caffe.proto.caffe_pb2.Datum()
-            datum.channels = img.shape[0]
-            datum.height = img.shape[1]
-            datum.width = img.shape[2]
-            datum.data = img.tostring()
-            datum.label = label
-            str_id = '{:08}'.format(i)
-            txn.put(str_id, datum.SerializeToString())
-            count += 1
+            #---
+            for j in range(8):
+                if (j):
+                    img = data_augment.process(img)
+                img = image_preprocess(img)
+                datum = caffe.proto.caffe_pb2.Datum()
+                datum.channels = img.shape[0]
+                datum.height = img.shape[1]
+                datum.width = img.shape[2]
+                datum.data = img.tostring()
+                datum.label = label
+                str_id = '{:08}'.format(i*10+j)
+                txn.put(str_id, datum.SerializeToString())            
+                count += 1
+            #---
     print '%s created, total images = %d' %(db_name, count)
 
 if __name__ == '__main__':
