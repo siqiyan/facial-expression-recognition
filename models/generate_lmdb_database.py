@@ -31,6 +31,7 @@ def parse_label(filename):
         return None
     return label_ref.index(label)
 
+
 def load_all_images_and_shuffle():
     root = 'KDEF'
     img_src = []
@@ -45,6 +46,7 @@ def load_all_images_and_shuffle():
     shuffle(img_src)
     return img_src
 
+
 def crop_image(img, crop_ratio):
     h, w, _ = img.shape
     crop_len = int(np.round(w / 2 * crop_ratio))
@@ -52,6 +54,13 @@ def crop_image(img, crop_ratio):
     mid_w = int(np.round(w / 2))
     img = img[mid_h - crop_len:mid_h + crop_len + 1,
             mid_w - crop_len:mid_w + crop_len + 1, :]
+    return img
+
+
+def image_preprocess(img):
+    img = crop_image(img, 0.8)
+    img = imresize(img, [img_height, img_width])
+    img = np.transpose(img, [2, 0, 1])
     return img
     
 
@@ -66,9 +75,7 @@ def create_lmdb(img_src, db_name, map_size):
             if label == None:
                 continue
             img = np.array(Image.open(src))
-            img = crop_image(img, 0.8)
-            img = imresize(img, [img_height, img_width])
-            img = np.transpose(img, [2, 0, 1])
+            img = image_preprocess(img)
             datum = caffe.proto.caffe_pb2.Datum()
             datum.channels = img.shape[0]
             datum.height = img.shape[1]
