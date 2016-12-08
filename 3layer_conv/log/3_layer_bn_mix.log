@@ -1,0 +1,854 @@
+I1206 19:54:38.144075  8225 layer_factory.hpp:77] Creating layer cifar
+I1206 19:54:38.144181  8225 net.cpp:100] Creating Layer cifar
+I1206 19:54:38.144187  8225 net.cpp:408] cifar -> data
+I1206 19:54:38.144194  8225 net.cpp:408] cifar -> label
+I1206 19:54:38.144201  8225 data_transformer.cpp:25] Loading mean file from: dataset/kdef_aug_test_mean.binaryproto
+I1206 19:54:38.145046  8231 db_lmdb.cpp:35] Opened lmdb dataset/kdef_aug_test
+I1206 19:54:38.145187  8225 data_layer.cpp:41] output data size: 100,3,100,100
+I1206 19:54:38.163079  8225 net.cpp:150] Setting up cifar
+I1206 19:54:38.163113  8225 net.cpp:157] Top shape: 100 3 100 100 (3000000)
+I1206 19:54:38.163125  8225 net.cpp:157] Top shape: 100 (100)
+I1206 19:54:38.163130  8225 net.cpp:165] Memory required for data: 12000400
+I1206 19:54:38.163167  8225 layer_factory.hpp:77] Creating layer label_cifar_1_split
+I1206 19:54:38.163188  8225 net.cpp:100] Creating Layer label_cifar_1_split
+I1206 19:54:38.163198  8225 net.cpp:434] label_cifar_1_split <- label
+I1206 19:54:38.163209  8225 net.cpp:408] label_cifar_1_split -> label_cifar_1_split_0
+I1206 19:54:38.163223  8225 net.cpp:408] label_cifar_1_split -> label_cifar_1_split_1
+I1206 19:54:38.163280  8225 net.cpp:150] Setting up label_cifar_1_split
+I1206 19:54:38.163290  8225 net.cpp:157] Top shape: 100 (100)
+I1206 19:54:38.163296  8225 net.cpp:157] Top shape: 100 (100)
+I1206 19:54:38.163301  8225 net.cpp:165] Memory required for data: 12001200
+I1206 19:54:38.163307  8225 layer_factory.hpp:77] Creating layer conv1
+I1206 19:54:38.163323  8225 net.cpp:100] Creating Layer conv1
+I1206 19:54:38.163329  8225 net.cpp:434] conv1 <- data
+I1206 19:54:38.163338  8225 net.cpp:408] conv1 -> conv1
+I1206 19:54:38.163574  8225 net.cpp:150] Setting up conv1
+I1206 19:54:38.163583  8225 net.cpp:157] Top shape: 100 32 100 100 (32000000)
+I1206 19:54:38.163589  8225 net.cpp:165] Memory required for data: 140001200
+I1206 19:54:38.163599  8225 layer_factory.hpp:77] Creating layer pool1
+I1206 19:54:38.163610  8225 net.cpp:100] Creating Layer pool1
+I1206 19:54:38.163616  8225 net.cpp:434] pool1 <- conv1
+I1206 19:54:38.163625  8225 net.cpp:408] pool1 -> pool1
+I1206 19:54:38.163664  8225 net.cpp:150] Setting up pool1
+I1206 19:54:38.163672  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.163677  8225 net.cpp:165] Memory required for data: 172001200
+I1206 19:54:38.163683  8225 layer_factory.hpp:77] Creating layer bn1
+I1206 19:54:38.163693  8225 net.cpp:100] Creating Layer bn1
+I1206 19:54:38.163699  8225 net.cpp:434] bn1 <- pool1
+I1206 19:54:38.163707  8225 net.cpp:408] bn1 -> bn1
+I1206 19:54:38.163914  8225 net.cpp:150] Setting up bn1
+I1206 19:54:38.163924  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.163929  8225 net.cpp:165] Memory required for data: 204001200
+I1206 19:54:38.163946  8225 layer_factory.hpp:77] Creating layer Sigmoid1
+I1206 19:54:38.163955  8225 net.cpp:100] Creating Layer Sigmoid1
+I1206 19:54:38.163961  8225 net.cpp:434] Sigmoid1 <- bn1
+I1206 19:54:38.163969  8225 net.cpp:408] Sigmoid1 -> Sigmoid1
+I1206 19:54:38.164940  8225 net.cpp:150] Setting up Sigmoid1
+I1206 19:54:38.164949  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.164955  8225 net.cpp:165] Memory required for data: 236001200
+I1206 19:54:38.164959  8225 layer_factory.hpp:77] Creating layer conv2
+I1206 19:54:38.164971  8225 net.cpp:100] Creating Layer conv2
+I1206 19:54:38.164978  8225 net.cpp:434] conv2 <- Sigmoid1
+I1206 19:54:38.164986  8225 net.cpp:408] conv2 -> conv2
+I1206 19:54:38.165841  8225 net.cpp:150] Setting up conv2
+I1206 19:54:38.165856  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.165861  8225 net.cpp:165] Memory required for data: 268001200
+I1206 19:54:38.165873  8225 layer_factory.hpp:77] Creating layer bn2
+I1206 19:54:38.165882  8225 net.cpp:100] Creating Layer bn2
+I1206 19:54:38.165887  8225 net.cpp:434] bn2 <- conv2
+I1206 19:54:38.165897  8225 net.cpp:408] bn2 -> bn2
+I1206 19:54:38.166056  8225 net.cpp:150] Setting up bn2
+I1206 19:54:38.166065  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.166071  8225 net.cpp:165] Memory required for data: 300001200
+I1206 19:54:38.166082  8225 layer_factory.hpp:77] Creating layer Sigmoid2
+I1206 19:54:38.166093  8225 net.cpp:100] Creating Layer Sigmoid2
+I1206 19:54:38.166100  8225 net.cpp:434] Sigmoid2 <- bn2
+I1206 19:54:38.166108  8225 net.cpp:408] Sigmoid2 -> Sigmoid2
+I1206 19:54:38.166131  8225 net.cpp:150] Setting up Sigmoid2
+I1206 19:54:38.166139  8225 net.cpp:157] Top shape: 100 32 50 50 (8000000)
+I1206 19:54:38.166144  8225 net.cpp:165] Memory required for data: 332001200
+I1206 19:54:38.166151  8225 layer_factory.hpp:77] Creating layer pool2
+I1206 19:54:38.166159  8225 net.cpp:100] Creating Layer pool2
+I1206 19:54:38.166164  8225 net.cpp:434] pool2 <- Sigmoid2
+I1206 19:54:38.166199  8225 net.cpp:408] pool2 -> pool2
+I1206 19:54:38.166225  8225 net.cpp:150] Setting up pool2
+I1206 19:54:38.166234  8225 net.cpp:157] Top shape: 100 32 25 25 (2000000)
+I1206 19:54:38.166239  8225 net.cpp:165] Memory required for data: 340001200
+I1206 19:54:38.166244  8225 layer_factory.hpp:77] Creating layer conv3
+I1206 19:54:38.166256  8225 net.cpp:100] Creating Layer conv3
+I1206 19:54:38.166262  8225 net.cpp:434] conv3 <- pool2
+I1206 19:54:38.166271  8225 net.cpp:408] conv3 -> conv3
+I1206 19:54:38.168174  8225 net.cpp:150] Setting up conv3
+I1206 19:54:38.168196  8225 net.cpp:157] Top shape: 100 64 25 25 (4000000)
+I1206 19:54:38.168202  8225 net.cpp:165] Memory required for data: 356001200
+I1206 19:54:38.168217  8225 layer_factory.hpp:77] Creating layer bn3
+I1206 19:54:38.168231  8225 net.cpp:100] Creating Layer bn3
+I1206 19:54:38.168236  8225 net.cpp:434] bn3 <- conv3
+I1206 19:54:38.168244  8225 net.cpp:408] bn3 -> bn3
+I1206 19:54:38.168432  8225 net.cpp:150] Setting up bn3
+I1206 19:54:38.168443  8225 net.cpp:157] Top shape: 100 64 25 25 (4000000)
+I1206 19:54:38.168449  8225 net.cpp:165] Memory required for data: 372001200
+I1206 19:54:38.168462  8225 layer_factory.hpp:77] Creating layer Sigmoid3
+I1206 19:54:38.168473  8225 net.cpp:100] Creating Layer Sigmoid3
+I1206 19:54:38.168478  8225 net.cpp:434] Sigmoid3 <- bn3
+I1206 19:54:38.168486  8225 net.cpp:408] Sigmoid3 -> Sigmoid3
+I1206 19:54:38.168519  8225 net.cpp:150] Setting up Sigmoid3
+I1206 19:54:38.168526  8225 net.cpp:157] Top shape: 100 64 25 25 (4000000)
+I1206 19:54:38.168531  8225 net.cpp:165] Memory required for data: 388001200
+I1206 19:54:38.168537  8225 layer_factory.hpp:77] Creating layer pool3
+I1206 19:54:38.168552  8225 net.cpp:100] Creating Layer pool3
+I1206 19:54:38.168557  8225 net.cpp:434] pool3 <- Sigmoid3
+I1206 19:54:38.168565  8225 net.cpp:408] pool3 -> pool3
+I1206 19:54:38.168591  8225 net.cpp:150] Setting up pool3
+I1206 19:54:38.168598  8225 net.cpp:157] Top shape: 100 64 12 12 (921600)
+I1206 19:54:38.168603  8225 net.cpp:165] Memory required for data: 391687600
+I1206 19:54:38.168609  8225 layer_factory.hpp:77] Creating layer ip1
+I1206 19:54:38.168622  8225 net.cpp:100] Creating Layer ip1
+I1206 19:54:38.168628  8225 net.cpp:434] ip1 <- pool3
+I1206 19:54:38.168637  8225 net.cpp:408] ip1 -> ip1
+I1206 19:54:38.170519  8225 net.cpp:150] Setting up ip1
+I1206 19:54:38.170544  8225 net.cpp:157] Top shape: 100 7 (700)
+I1206 19:54:38.170552  8225 net.cpp:165] Memory required for data: 391690400
+I1206 19:54:38.170564  8225 layer_factory.hpp:77] Creating layer ip1_ip1_0_split
+I1206 19:54:38.170581  8225 net.cpp:100] Creating Layer ip1_ip1_0_split
+I1206 19:54:38.170589  8225 net.cpp:434] ip1_ip1_0_split <- ip1
+I1206 19:54:38.170599  8225 net.cpp:408] ip1_ip1_0_split -> ip1_ip1_0_split_0
+I1206 19:54:38.170611  8225 net.cpp:408] ip1_ip1_0_split -> ip1_ip1_0_split_1
+I1206 19:54:38.170671  8225 net.cpp:150] Setting up ip1_ip1_0_split
+I1206 19:54:38.170681  8225 net.cpp:157] Top shape: 100 7 (700)
+I1206 19:54:38.170688  8225 net.cpp:157] Top shape: 100 7 (700)
+I1206 19:54:38.170694  8225 net.cpp:165] Memory required for data: 391696000
+I1206 19:54:38.170701  8225 layer_factory.hpp:77] Creating layer accuracy
+I1206 19:54:38.170719  8225 net.cpp:100] Creating Layer accuracy
+I1206 19:54:38.170724  8225 net.cpp:434] accuracy <- ip1_ip1_0_split_0
+I1206 19:54:38.170732  8225 net.cpp:434] accuracy <- label_cifar_1_split_0
+I1206 19:54:38.170742  8225 net.cpp:408] accuracy -> accuracy
+I1206 19:54:38.170755  8225 net.cpp:150] Setting up accuracy
+I1206 19:54:38.170764  8225 net.cpp:157] Top shape: (1)
+I1206 19:54:38.170770  8225 net.cpp:165] Memory required for data: 391696004
+I1206 19:54:38.170776  8225 layer_factory.hpp:77] Creating layer loss
+I1206 19:54:38.170785  8225 net.cpp:100] Creating Layer loss
+I1206 19:54:38.170791  8225 net.cpp:434] loss <- ip1_ip1_0_split_1
+I1206 19:54:38.170799  8225 net.cpp:434] loss <- label_cifar_1_split_1
+I1206 19:54:38.170806  8225 net.cpp:408] loss -> loss
+I1206 19:54:38.170819  8225 layer_factory.hpp:77] Creating layer loss
+I1206 19:54:38.170954  8225 net.cpp:150] Setting up loss
+I1206 19:54:38.170963  8225 net.cpp:157] Top shape: (1)
+I1206 19:54:38.170969  8225 net.cpp:160]     with loss weight 1
+I1206 19:54:38.170984  8225 net.cpp:165] Memory required for data: 391696008
+I1206 19:54:38.170990  8225 net.cpp:226] loss needs backward computation.
+I1206 19:54:38.170997  8225 net.cpp:228] accuracy does not need backward computation.
+I1206 19:54:38.171005  8225 net.cpp:226] ip1_ip1_0_split needs backward computation.
+I1206 19:54:38.171010  8225 net.cpp:226] ip1 needs backward computation.
+I1206 19:54:38.171016  8225 net.cpp:226] pool3 needs backward computation.
+I1206 19:54:38.171022  8225 net.cpp:226] Sigmoid3 needs backward computation.
+I1206 19:54:38.171027  8225 net.cpp:226] bn3 needs backward computation.
+I1206 19:54:38.171033  8225 net.cpp:226] conv3 needs backward computation.
+I1206 19:54:38.171039  8225 net.cpp:226] pool2 needs backward computation.
+I1206 19:54:38.171046  8225 net.cpp:226] Sigmoid2 needs backward computation.
+I1206 19:54:38.171052  8225 net.cpp:226] bn2 needs backward computation.
+I1206 19:54:38.171058  8225 net.cpp:226] conv2 needs backward computation.
+I1206 19:54:38.171064  8225 net.cpp:226] Sigmoid1 needs backward computation.
+I1206 19:54:38.171069  8225 net.cpp:226] bn1 needs backward computation.
+I1206 19:54:38.171074  8225 net.cpp:226] pool1 needs backward computation.
+I1206 19:54:38.171079  8225 net.cpp:226] conv1 needs backward computation.
+I1206 19:54:38.171085  8225 net.cpp:228] label_cifar_1_split does not need backward computation.
+I1206 19:54:38.171092  8225 net.cpp:228] cifar does not need backward computation.
+I1206 19:54:38.171097  8225 net.cpp:270] This network produces output accuracy
+I1206 19:54:38.171103  8225 net.cpp:270] This network produces output loss
+I1206 19:54:38.171128  8225 net.cpp:283] Network initialization done.
+I1206 19:54:38.171206  8225 solver.cpp:60] Solver scaffolding done.
+I1206 19:54:38.171583  8225 caffe.cpp:251] Starting Optimization
+I1206 19:54:38.171594  8225 solver.cpp:279] Solving CIFAR10_full
+I1206 19:54:38.171599  8225 solver.cpp:280] Learning Rate Policy: fixed
+I1206 19:54:38.172152  8225 solver.cpp:337] Iteration 0, Testing net (#0)
+I1206 19:54:38.172639  8225 blocking_queue.cpp:50] Data layer prefetch queue empty
+I1206 19:54:45.774569  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1427
+I1206 19:54:45.774605  8225 solver.cpp:404]     Test net output #1: loss = 2.19656 (* 1 = 2.19656 loss)
+I1206 19:54:45.939949  8225 solver.cpp:228] Iteration 0, loss = 1.96152
+I1206 19:54:45.939978  8225 solver.cpp:244]     Train net output #0: loss = 1.96152 (* 1 = 1.96152 loss)
+I1206 19:54:45.939985  8225 sgd_solver.cpp:106] Iteration 0, lr = 0.001
+I1206 19:55:38.904557  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_200.caffemodel
+I1206 19:55:38.906821  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_200.solverstate
+I1206 19:55:38.907568  8225 solver.cpp:337] Iteration 200, Testing net (#0)
+I1206 19:55:46.467250  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2157
+I1206 19:55:46.467288  8225 solver.cpp:404]     Test net output #1: loss = 1.91041 (* 1 = 1.91041 loss)
+I1206 19:55:46.624686  8225 solver.cpp:228] Iteration 200, loss = 1.87649
+I1206 19:55:46.624716  8225 solver.cpp:244]     Train net output #0: loss = 1.87649 (* 1 = 1.87649 loss)
+I1206 19:55:46.624724  8225 sgd_solver.cpp:106] Iteration 200, lr = 0.001
+I1206 19:56:39.609493  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_400.caffemodel
+I1206 19:56:39.611011  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_400.solverstate
+I1206 19:56:39.611752  8225 solver.cpp:337] Iteration 400, Testing net (#0)
+I1206 19:56:47.172830  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1914
+I1206 19:56:47.172868  8225 solver.cpp:404]     Test net output #1: loss = 2.00418 (* 1 = 2.00418 loss)
+I1206 19:56:47.330564  8225 solver.cpp:228] Iteration 400, loss = 1.88329
+I1206 19:56:47.330598  8225 solver.cpp:244]     Train net output #0: loss = 1.88329 (* 1 = 1.88329 loss)
+I1206 19:56:47.330607  8225 sgd_solver.cpp:106] Iteration 400, lr = 0.001
+I1206 19:57:40.325698  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_600.caffemodel
+I1206 19:57:40.327203  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_600.solverstate
+I1206 19:57:40.327955  8225 solver.cpp:337] Iteration 600, Testing net (#0)
+I1206 19:57:47.889897  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2282
+I1206 19:57:47.889931  8225 solver.cpp:404]     Test net output #1: loss = 1.90339 (* 1 = 1.90339 loss)
+I1206 19:57:48.047796  8225 solver.cpp:228] Iteration 600, loss = 1.86595
+I1206 19:57:48.047824  8225 solver.cpp:244]     Train net output #0: loss = 1.86595 (* 1 = 1.86595 loss)
+I1206 19:57:48.047829  8225 sgd_solver.cpp:106] Iteration 600, lr = 0.001
+I1206 19:58:41.054752  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_800.caffemodel
+I1206 19:58:41.056246  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_800.solverstate
+I1206 19:58:41.057003  8225 solver.cpp:337] Iteration 800, Testing net (#0)
+I1206 19:58:48.622221  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2651
+I1206 19:58:48.622258  8225 solver.cpp:404]     Test net output #1: loss = 1.87208 (* 1 = 1.87208 loss)
+I1206 19:58:48.779963  8225 solver.cpp:228] Iteration 800, loss = 1.78505
+I1206 19:58:48.779994  8225 solver.cpp:244]     Train net output #0: loss = 1.78505 (* 1 = 1.78505 loss)
+I1206 19:58:48.780000  8225 sgd_solver.cpp:106] Iteration 800, lr = 0.001
+I1206 19:59:41.795070  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_1000.caffemodel
+I1206 19:59:41.796550  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_1000.solverstate
+I1206 19:59:41.797303  8225 solver.cpp:337] Iteration 1000, Testing net (#0)
+I1206 19:59:49.360605  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2244
+I1206 19:59:49.360642  8225 solver.cpp:404]     Test net output #1: loss = 1.89194 (* 1 = 1.89194 loss)
+I1206 19:59:49.518365  8225 solver.cpp:228] Iteration 1000, loss = 1.79153
+I1206 19:59:49.518395  8225 solver.cpp:244]     Train net output #0: loss = 1.79153 (* 1 = 1.79153 loss)
+I1206 19:59:49.518404  8225 sgd_solver.cpp:106] Iteration 1000, lr = 0.001
+I1206 20:00:42.529834  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_1200.caffemodel
+I1206 20:00:42.531308  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_1200.solverstate
+I1206 20:00:42.532042  8225 solver.cpp:337] Iteration 1200, Testing net (#0)
+I1206 20:00:50.095577  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2301
+I1206 20:00:50.095613  8225 solver.cpp:404]     Test net output #1: loss = 1.93573 (* 1 = 1.93573 loss)
+I1206 20:00:50.253530  8225 solver.cpp:228] Iteration 1200, loss = 1.75233
+I1206 20:00:50.253561  8225 solver.cpp:244]     Train net output #0: loss = 1.75233 (* 1 = 1.75233 loss)
+I1206 20:00:50.253568  8225 sgd_solver.cpp:106] Iteration 1200, lr = 0.001
+I1206 20:01:43.271127  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_1400.caffemodel
+I1206 20:01:43.272595  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_1400.solverstate
+I1206 20:01:43.273341  8225 solver.cpp:337] Iteration 1400, Testing net (#0)
+I1206 20:01:50.836813  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1691
+I1206 20:01:50.836851  8225 solver.cpp:404]     Test net output #1: loss = 2.01605 (* 1 = 2.01605 loss)
+I1206 20:01:50.994688  8225 solver.cpp:228] Iteration 1400, loss = 1.69632
+I1206 20:01:50.994719  8225 solver.cpp:244]     Train net output #0: loss = 1.69632 (* 1 = 1.69632 loss)
+I1206 20:01:50.994726  8225 sgd_solver.cpp:106] Iteration 1400, lr = 0.001
+I1206 20:02:44.012069  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_1600.caffemodel
+I1206 20:02:44.013576  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_1600.solverstate
+I1206 20:02:44.014312  8225 solver.cpp:337] Iteration 1600, Testing net (#0)
+I1206 20:02:51.577888  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1931
+I1206 20:02:51.577924  8225 solver.cpp:404]     Test net output #1: loss = 1.94959 (* 1 = 1.94959 loss)
+I1206 20:02:51.735849  8225 solver.cpp:228] Iteration 1600, loss = 1.79127
+I1206 20:02:51.735880  8225 solver.cpp:244]     Train net output #0: loss = 1.79127 (* 1 = 1.79127 loss)
+I1206 20:02:51.735888  8225 sgd_solver.cpp:106] Iteration 1600, lr = 0.001
+I1206 20:03:44.758505  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_1800.caffemodel
+I1206 20:03:44.759991  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_1800.solverstate
+I1206 20:03:44.760725  8225 solver.cpp:337] Iteration 1800, Testing net (#0)
+I1206 20:03:52.326345  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2321
+I1206 20:03:52.326383  8225 solver.cpp:404]     Test net output #1: loss = 1.87954 (* 1 = 1.87954 loss)
+I1206 20:03:52.483808  8225 solver.cpp:228] Iteration 1800, loss = 1.53794
+I1206 20:03:52.483839  8225 solver.cpp:244]     Train net output #0: loss = 1.53794 (* 1 = 1.53794 loss)
+I1206 20:03:52.483849  8225 sgd_solver.cpp:106] Iteration 1800, lr = 0.001
+I1206 20:04:45.508785  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_2000.caffemodel
+I1206 20:04:45.510251  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_2000.solverstate
+I1206 20:04:45.510983  8225 solver.cpp:337] Iteration 2000, Testing net (#0)
+I1206 20:04:53.074553  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2672
+I1206 20:04:53.074590  8225 solver.cpp:404]     Test net output #1: loss = 1.88288 (* 1 = 1.88288 loss)
+I1206 20:04:53.232383  8225 solver.cpp:228] Iteration 2000, loss = 1.54081
+I1206 20:04:53.232411  8225 solver.cpp:244]     Train net output #0: loss = 1.54081 (* 1 = 1.54081 loss)
+I1206 20:04:53.232419  8225 sgd_solver.cpp:106] Iteration 2000, lr = 0.001
+I1206 20:05:46.252791  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_2200.caffemodel
+I1206 20:05:46.254271  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_2200.solverstate
+I1206 20:05:46.255007  8225 solver.cpp:337] Iteration 2200, Testing net (#0)
+I1206 20:05:53.819777  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2828
+I1206 20:05:53.819814  8225 solver.cpp:404]     Test net output #1: loss = 1.81029 (* 1 = 1.81029 loss)
+I1206 20:05:53.977417  8225 solver.cpp:228] Iteration 2200, loss = 1.40496
+I1206 20:05:53.977447  8225 solver.cpp:244]     Train net output #0: loss = 1.40496 (* 1 = 1.40496 loss)
+I1206 20:05:53.977455  8225 sgd_solver.cpp:106] Iteration 2200, lr = 0.001
+I1206 20:06:46.999609  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_2400.caffemodel
+I1206 20:06:47.001072  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_2400.solverstate
+I1206 20:06:47.001799  8225 solver.cpp:337] Iteration 2400, Testing net (#0)
+I1206 20:06:54.565754  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2267
+I1206 20:06:54.565793  8225 solver.cpp:404]     Test net output #1: loss = 2.01231 (* 1 = 2.01231 loss)
+I1206 20:06:54.723568  8225 solver.cpp:228] Iteration 2400, loss = 1.57184
+I1206 20:06:54.723593  8225 solver.cpp:244]     Train net output #0: loss = 1.57184 (* 1 = 1.57184 loss)
+I1206 20:06:54.723599  8225 sgd_solver.cpp:106] Iteration 2400, lr = 0.001
+I1206 20:07:47.741094  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_2600.caffemodel
+I1206 20:07:47.742595  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_2600.solverstate
+I1206 20:07:47.743317  8225 solver.cpp:337] Iteration 2600, Testing net (#0)
+I1206 20:07:55.306800  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1846
+I1206 20:07:55.306838  8225 solver.cpp:404]     Test net output #1: loss = 2.13866 (* 1 = 2.13866 loss)
+I1206 20:07:55.464393  8225 solver.cpp:228] Iteration 2600, loss = 1.47424
+I1206 20:07:55.464421  8225 solver.cpp:244]     Train net output #0: loss = 1.47424 (* 1 = 1.47424 loss)
+I1206 20:07:55.464427  8225 sgd_solver.cpp:106] Iteration 2600, lr = 0.001
+I1206 20:08:48.480634  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_2800.caffemodel
+I1206 20:08:48.482089  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_2800.solverstate
+I1206 20:08:48.482811  8225 solver.cpp:337] Iteration 2800, Testing net (#0)
+I1206 20:08:56.047075  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2491
+I1206 20:08:56.047104  8225 solver.cpp:404]     Test net output #1: loss = 1.87564 (* 1 = 1.87564 loss)
+I1206 20:08:56.204958  8225 solver.cpp:228] Iteration 2800, loss = 1.48416
+I1206 20:08:56.204985  8225 solver.cpp:244]     Train net output #0: loss = 1.48416 (* 1 = 1.48416 loss)
+I1206 20:08:56.204991  8225 sgd_solver.cpp:106] Iteration 2800, lr = 0.001
+I1206 20:09:49.223018  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_3000.caffemodel
+I1206 20:09:49.224509  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_3000.solverstate
+I1206 20:09:49.225253  8225 solver.cpp:337] Iteration 3000, Testing net (#0)
+I1206 20:09:56.788570  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3159
+I1206 20:09:56.788607  8225 solver.cpp:404]     Test net output #1: loss = 1.83036 (* 1 = 1.83036 loss)
+I1206 20:09:56.946251  8225 solver.cpp:228] Iteration 3000, loss = 1.55928
+I1206 20:09:56.946277  8225 solver.cpp:244]     Train net output #0: loss = 1.55928 (* 1 = 1.55928 loss)
+I1206 20:09:56.946282  8225 sgd_solver.cpp:106] Iteration 3000, lr = 0.001
+I1206 20:10:49.964473  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_3200.caffemodel
+I1206 20:10:49.965922  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_3200.solverstate
+I1206 20:10:49.966651  8225 solver.cpp:337] Iteration 3200, Testing net (#0)
+I1206 20:10:57.531503  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3417
+I1206 20:10:57.531543  8225 solver.cpp:404]     Test net output #1: loss = 1.78859 (* 1 = 1.78859 loss)
+I1206 20:10:57.689750  8225 solver.cpp:228] Iteration 3200, loss = 1.47965
+I1206 20:10:57.689777  8225 solver.cpp:244]     Train net output #0: loss = 1.47965 (* 1 = 1.47965 loss)
+I1206 20:10:57.689782  8225 sgd_solver.cpp:106] Iteration 3200, lr = 0.001
+I1206 20:11:50.707562  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_3400.caffemodel
+I1206 20:11:50.709017  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_3400.solverstate
+I1206 20:11:50.709743  8225 solver.cpp:337] Iteration 3400, Testing net (#0)
+I1206 20:11:58.272999  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2666
+I1206 20:11:58.273035  8225 solver.cpp:404]     Test net output #1: loss = 1.91561 (* 1 = 1.91561 loss)
+I1206 20:11:58.430618  8225 solver.cpp:228] Iteration 3400, loss = 1.4954
+I1206 20:11:58.430644  8225 solver.cpp:244]     Train net output #0: loss = 1.4954 (* 1 = 1.4954 loss)
+I1206 20:11:58.430649  8225 sgd_solver.cpp:106] Iteration 3400, lr = 0.001
+I1206 20:12:51.442848  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_3600.caffemodel
+I1206 20:12:51.444345  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_3600.solverstate
+I1206 20:12:51.445086  8225 solver.cpp:337] Iteration 3600, Testing net (#0)
+I1206 20:12:59.009749  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2997
+I1206 20:12:59.009783  8225 solver.cpp:404]     Test net output #1: loss = 1.86321 (* 1 = 1.86321 loss)
+I1206 20:12:59.167575  8225 solver.cpp:228] Iteration 3600, loss = 1.53906
+I1206 20:12:59.167603  8225 solver.cpp:244]     Train net output #0: loss = 1.53906 (* 1 = 1.53906 loss)
+I1206 20:12:59.167608  8225 sgd_solver.cpp:106] Iteration 3600, lr = 0.001
+I1206 20:13:52.182560  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_3800.caffemodel
+I1206 20:13:52.184026  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_3800.solverstate
+I1206 20:13:52.184744  8225 solver.cpp:337] Iteration 3800, Testing net (#0)
+I1206 20:13:59.748360  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2843
+I1206 20:13:59.748395  8225 solver.cpp:404]     Test net output #1: loss = 1.96447 (* 1 = 1.96447 loss)
+I1206 20:13:59.906272  8225 solver.cpp:228] Iteration 3800, loss = 1.49361
+I1206 20:13:59.906301  8225 solver.cpp:244]     Train net output #0: loss = 1.49361 (* 1 = 1.49361 loss)
+I1206 20:13:59.906306  8225 sgd_solver.cpp:106] Iteration 3800, lr = 0.001
+I1206 20:14:52.919561  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_4000.caffemodel
+I1206 20:14:52.921074  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_4000.solverstate
+I1206 20:14:52.921828  8225 solver.cpp:337] Iteration 4000, Testing net (#0)
+I1206 20:15:00.486515  8225 solver.cpp:404]     Test net output #0: accuracy = 0.1923
+I1206 20:15:00.486546  8225 solver.cpp:404]     Test net output #1: loss = 2.32296 (* 1 = 2.32296 loss)
+I1206 20:15:00.644520  8225 solver.cpp:228] Iteration 4000, loss = 1.37699
+I1206 20:15:00.644543  8225 solver.cpp:244]     Train net output #0: loss = 1.37699 (* 1 = 1.37699 loss)
+I1206 20:15:00.644549  8225 sgd_solver.cpp:106] Iteration 4000, lr = 0.001
+I1206 20:15:53.657965  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_4200.caffemodel
+I1206 20:15:53.659412  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_4200.solverstate
+I1206 20:15:53.660132  8225 solver.cpp:337] Iteration 4200, Testing net (#0)
+I1206 20:16:01.222424  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2414
+I1206 20:16:01.222453  8225 solver.cpp:404]     Test net output #1: loss = 1.97701 (* 1 = 1.97701 loss)
+I1206 20:16:01.380625  8225 solver.cpp:228] Iteration 4200, loss = 1.49119
+I1206 20:16:01.380650  8225 solver.cpp:244]     Train net output #0: loss = 1.49119 (* 1 = 1.49119 loss)
+I1206 20:16:01.380656  8225 sgd_solver.cpp:106] Iteration 4200, lr = 0.001
+I1206 20:16:54.397897  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_4400.caffemodel
+I1206 20:16:54.399384  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_4400.solverstate
+I1206 20:16:54.400102  8225 solver.cpp:337] Iteration 4400, Testing net (#0)
+I1206 20:17:01.964120  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2631
+I1206 20:17:01.964159  8225 solver.cpp:404]     Test net output #1: loss = 2.02664 (* 1 = 2.02664 loss)
+I1206 20:17:02.122073  8225 solver.cpp:228] Iteration 4400, loss = 1.2505
+I1206 20:17:02.122102  8225 solver.cpp:244]     Train net output #0: loss = 1.2505 (* 1 = 1.2505 loss)
+I1206 20:17:02.122107  8225 sgd_solver.cpp:106] Iteration 4400, lr = 0.001
+I1206 20:17:55.137632  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_4600.caffemodel
+I1206 20:17:55.139133  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_4600.solverstate
+I1206 20:17:55.139860  8225 solver.cpp:337] Iteration 4600, Testing net (#0)
+I1206 20:18:02.704551  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3155
+I1206 20:18:02.704587  8225 solver.cpp:404]     Test net output #1: loss = 1.86582 (* 1 = 1.86582 loss)
+I1206 20:18:02.862267  8225 solver.cpp:228] Iteration 4600, loss = 1.24749
+I1206 20:18:02.862292  8225 solver.cpp:244]     Train net output #0: loss = 1.24749 (* 1 = 1.24749 loss)
+I1206 20:18:02.862298  8225 sgd_solver.cpp:106] Iteration 4600, lr = 0.001
+I1206 20:18:55.870335  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_4800.caffemodel
+I1206 20:18:55.871812  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_4800.solverstate
+I1206 20:18:55.872542  8225 solver.cpp:337] Iteration 4800, Testing net (#0)
+I1206 20:19:03.434504  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3548
+I1206 20:19:03.434540  8225 solver.cpp:404]     Test net output #1: loss = 1.74647 (* 1 = 1.74647 loss)
+I1206 20:19:03.592303  8225 solver.cpp:228] Iteration 4800, loss = 1.27415
+I1206 20:19:03.592331  8225 solver.cpp:244]     Train net output #0: loss = 1.27415 (* 1 = 1.27415 loss)
+I1206 20:19:03.592337  8225 sgd_solver.cpp:106] Iteration 4800, lr = 0.001
+I1206 20:19:56.609233  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_5000.caffemodel
+I1206 20:19:56.610709  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_5000.solverstate
+I1206 20:19:56.611433  8225 solver.cpp:337] Iteration 5000, Testing net (#0)
+I1206 20:20:04.176792  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2999
+I1206 20:20:04.176838  8225 solver.cpp:404]     Test net output #1: loss = 1.94408 (* 1 = 1.94408 loss)
+I1206 20:20:04.334656  8225 solver.cpp:228] Iteration 5000, loss = 1.33944
+I1206 20:20:04.334684  8225 solver.cpp:244]     Train net output #0: loss = 1.33944 (* 1 = 1.33944 loss)
+I1206 20:20:04.334689  8225 sgd_solver.cpp:106] Iteration 5000, lr = 0.001
+I1206 20:20:57.360399  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_5200.caffemodel
+I1206 20:20:57.361862  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_5200.solverstate
+I1206 20:20:57.362581  8225 solver.cpp:337] Iteration 5200, Testing net (#0)
+I1206 20:21:04.926820  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2644
+I1206 20:21:04.926856  8225 solver.cpp:404]     Test net output #1: loss = 2.06789 (* 1 = 2.06789 loss)
+I1206 20:21:05.084743  8225 solver.cpp:228] Iteration 5200, loss = 1.35877
+I1206 20:21:05.084770  8225 solver.cpp:244]     Train net output #0: loss = 1.35877 (* 1 = 1.35877 loss)
+I1206 20:21:05.084775  8225 sgd_solver.cpp:106] Iteration 5200, lr = 0.001
+I1206 20:21:58.106683  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_5400.caffemodel
+I1206 20:21:58.108136  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_5400.solverstate
+I1206 20:21:58.108870  8225 solver.cpp:337] Iteration 5400, Testing net (#0)
+I1206 20:22:05.673895  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3243
+I1206 20:22:05.673936  8225 solver.cpp:404]     Test net output #1: loss = 1.80266 (* 1 = 1.80266 loss)
+I1206 20:22:05.831586  8225 solver.cpp:228] Iteration 5400, loss = 1.34955
+I1206 20:22:05.831619  8225 solver.cpp:244]     Train net output #0: loss = 1.34955 (* 1 = 1.34955 loss)
+I1206 20:22:05.831625  8225 sgd_solver.cpp:106] Iteration 5400, lr = 0.001
+I1206 20:22:58.851626  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_5600.caffemodel
+I1206 20:22:58.853101  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_5600.solverstate
+I1206 20:22:58.853822  8225 solver.cpp:337] Iteration 5600, Testing net (#0)
+I1206 20:23:06.417951  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3228
+I1206 20:23:06.417989  8225 solver.cpp:404]     Test net output #1: loss = 1.92562 (* 1 = 1.92562 loss)
+I1206 20:23:06.575649  8225 solver.cpp:228] Iteration 5600, loss = 1.35542
+I1206 20:23:06.575677  8225 solver.cpp:244]     Train net output #0: loss = 1.35542 (* 1 = 1.35542 loss)
+I1206 20:23:06.575682  8225 sgd_solver.cpp:106] Iteration 5600, lr = 0.001
+I1206 20:23:59.599658  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_5800.caffemodel
+I1206 20:23:59.601161  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_5800.solverstate
+I1206 20:23:59.601887  8225 solver.cpp:337] Iteration 5800, Testing net (#0)
+I1206 20:24:07.165213  8225 solver.cpp:404]     Test net output #0: accuracy = 0.379
+I1206 20:24:07.165249  8225 solver.cpp:404]     Test net output #1: loss = 1.69136 (* 1 = 1.69136 loss)
+I1206 20:24:07.323078  8225 solver.cpp:228] Iteration 5800, loss = 1.19209
+I1206 20:24:07.323106  8225 solver.cpp:244]     Train net output #0: loss = 1.19209 (* 1 = 1.19209 loss)
+I1206 20:24:07.323110  8225 sgd_solver.cpp:106] Iteration 5800, lr = 0.001
+I1206 20:25:00.339742  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_6000.caffemodel
+I1206 20:25:00.341183  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_6000.solverstate
+I1206 20:25:00.341912  8225 solver.cpp:337] Iteration 6000, Testing net (#0)
+I1206 20:25:07.905223  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3501
+I1206 20:25:07.905259  8225 solver.cpp:404]     Test net output #1: loss = 1.79506 (* 1 = 1.79506 loss)
+I1206 20:25:08.063076  8225 solver.cpp:228] Iteration 6000, loss = 1.32152
+I1206 20:25:08.063107  8225 solver.cpp:244]     Train net output #0: loss = 1.32152 (* 1 = 1.32152 loss)
+I1206 20:25:08.063114  8225 sgd_solver.cpp:106] Iteration 6000, lr = 0.001
+I1206 20:26:01.084172  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_6200.caffemodel
+I1206 20:26:01.085695  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_6200.solverstate
+I1206 20:26:01.086431  8225 solver.cpp:337] Iteration 6200, Testing net (#0)
+I1206 20:26:08.651470  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3645
+I1206 20:26:08.651507  8225 solver.cpp:404]     Test net output #1: loss = 1.75919 (* 1 = 1.75919 loss)
+I1206 20:26:08.809566  8225 solver.cpp:228] Iteration 6200, loss = 1.25389
+I1206 20:26:08.809597  8225 solver.cpp:244]     Train net output #0: loss = 1.25389 (* 1 = 1.25389 loss)
+I1206 20:26:08.809604  8225 sgd_solver.cpp:106] Iteration 6200, lr = 0.001
+I1206 20:27:01.826483  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_6400.caffemodel
+I1206 20:27:01.827919  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_6400.solverstate
+I1206 20:27:01.828647  8225 solver.cpp:337] Iteration 6400, Testing net (#0)
+I1206 20:27:09.391949  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3774
+I1206 20:27:09.391991  8225 solver.cpp:404]     Test net output #1: loss = 1.7311 (* 1 = 1.7311 loss)
+I1206 20:27:09.550158  8225 solver.cpp:228] Iteration 6400, loss = 1.38645
+I1206 20:27:09.550187  8225 solver.cpp:244]     Train net output #0: loss = 1.38645 (* 1 = 1.38645 loss)
+I1206 20:27:09.550195  8225 sgd_solver.cpp:106] Iteration 6400, lr = 0.001
+I1206 20:28:02.570902  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_6600.caffemodel
+I1206 20:28:02.572345  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_6600.solverstate
+I1206 20:28:02.573091  8225 solver.cpp:337] Iteration 6600, Testing net (#0)
+I1206 20:28:10.138700  8225 solver.cpp:404]     Test net output #0: accuracy = 0.2949
+I1206 20:28:10.138736  8225 solver.cpp:404]     Test net output #1: loss = 1.9445 (* 1 = 1.9445 loss)
+I1206 20:28:10.296623  8225 solver.cpp:228] Iteration 6600, loss = 1.22351
+I1206 20:28:10.296653  8225 solver.cpp:244]     Train net output #0: loss = 1.22351 (* 1 = 1.22351 loss)
+I1206 20:28:10.296660  8225 sgd_solver.cpp:106] Iteration 6600, lr = 0.001
+I1206 20:29:03.325327  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_6800.caffemodel
+I1206 20:29:03.326944  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_6800.solverstate
+I1206 20:29:03.327669  8225 solver.cpp:337] Iteration 6800, Testing net (#0)
+I1206 20:29:10.893350  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4151
+I1206 20:29:10.893386  8225 solver.cpp:404]     Test net output #1: loss = 1.61241 (* 1 = 1.61241 loss)
+I1206 20:29:11.051154  8225 solver.cpp:228] Iteration 6800, loss = 1.41416
+I1206 20:29:11.051183  8225 solver.cpp:244]     Train net output #0: loss = 1.41416 (* 1 = 1.41416 loss)
+I1206 20:29:11.051188  8225 sgd_solver.cpp:106] Iteration 6800, lr = 0.001
+I1206 20:30:04.081552  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_7000.caffemodel
+I1206 20:30:04.083030  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_7000.solverstate
+I1206 20:30:04.083753  8225 solver.cpp:337] Iteration 7000, Testing net (#0)
+I1206 20:30:11.648207  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3391
+I1206 20:30:11.648244  8225 solver.cpp:404]     Test net output #1: loss = 1.82028 (* 1 = 1.82028 loss)
+I1206 20:30:11.806017  8225 solver.cpp:228] Iteration 7000, loss = 1.22128
+I1206 20:30:11.806046  8225 solver.cpp:244]     Train net output #0: loss = 1.22128 (* 1 = 1.22128 loss)
+I1206 20:30:11.806051  8225 sgd_solver.cpp:106] Iteration 7000, lr = 0.001
+I1206 20:31:04.824692  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_7200.caffemodel
+I1206 20:31:04.826177  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_7200.solverstate
+I1206 20:31:04.826903  8225 solver.cpp:337] Iteration 7200, Testing net (#0)
+I1206 20:31:12.390460  8225 solver.cpp:404]     Test net output #0: accuracy = 0.339
+I1206 20:31:12.390496  8225 solver.cpp:404]     Test net output #1: loss = 1.81441 (* 1 = 1.81441 loss)
+I1206 20:31:12.548260  8225 solver.cpp:228] Iteration 7200, loss = 1.1445
+I1206 20:31:12.548288  8225 solver.cpp:244]     Train net output #0: loss = 1.1445 (* 1 = 1.1445 loss)
+I1206 20:31:12.548295  8225 sgd_solver.cpp:106] Iteration 7200, lr = 0.001
+I1206 20:32:05.571643  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_7400.caffemodel
+I1206 20:32:05.573125  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_7400.solverstate
+I1206 20:32:05.573843  8225 solver.cpp:337] Iteration 7400, Testing net (#0)
+I1206 20:32:13.140064  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4259
+I1206 20:32:13.140100  8225 solver.cpp:404]     Test net output #1: loss = 1.57533 (* 1 = 1.57533 loss)
+I1206 20:32:13.298053  8225 solver.cpp:228] Iteration 7400, loss = 1.26598
+I1206 20:32:13.298081  8225 solver.cpp:244]     Train net output #0: loss = 1.26598 (* 1 = 1.26598 loss)
+I1206 20:32:13.298086  8225 sgd_solver.cpp:106] Iteration 7400, lr = 0.001
+I1206 20:33:06.322501  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_7600.caffemodel
+I1206 20:33:06.323992  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_7600.solverstate
+I1206 20:33:06.324714  8225 solver.cpp:337] Iteration 7600, Testing net (#0)
+I1206 20:33:13.887933  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3932
+I1206 20:33:13.887969  8225 solver.cpp:404]     Test net output #1: loss = 1.681 (* 1 = 1.681 loss)
+I1206 20:33:14.045614  8225 solver.cpp:228] Iteration 7600, loss = 1.27402
+I1206 20:33:14.045640  8225 solver.cpp:244]     Train net output #0: loss = 1.27402 (* 1 = 1.27402 loss)
+I1206 20:33:14.045645  8225 sgd_solver.cpp:106] Iteration 7600, lr = 0.001
+I1206 20:34:07.064781  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_7800.caffemodel
+I1206 20:34:07.066252  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_7800.solverstate
+I1206 20:34:07.066973  8225 solver.cpp:337] Iteration 7800, Testing net (#0)
+I1206 20:34:14.630293  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3299
+I1206 20:34:14.630331  8225 solver.cpp:404]     Test net output #1: loss = 1.87657 (* 1 = 1.87657 loss)
+I1206 20:34:14.788102  8225 solver.cpp:228] Iteration 7800, loss = 1.25073
+I1206 20:34:14.788130  8225 solver.cpp:244]     Train net output #0: loss = 1.25073 (* 1 = 1.25073 loss)
+I1206 20:34:14.788136  8225 sgd_solver.cpp:106] Iteration 7800, lr = 0.001
+I1206 20:35:07.807209  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_8000.caffemodel
+I1206 20:35:07.808670  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_8000.solverstate
+I1206 20:35:07.809411  8225 solver.cpp:337] Iteration 8000, Testing net (#0)
+I1206 20:35:15.373859  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4137
+I1206 20:35:15.373894  8225 solver.cpp:404]     Test net output #1: loss = 1.61514 (* 1 = 1.61514 loss)
+I1206 20:35:15.531617  8225 solver.cpp:228] Iteration 8000, loss = 1.19634
+I1206 20:35:15.531643  8225 solver.cpp:244]     Train net output #0: loss = 1.19634 (* 1 = 1.19634 loss)
+I1206 20:35:15.531649  8225 sgd_solver.cpp:106] Iteration 8000, lr = 0.001
+I1206 20:36:08.548960  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_8200.caffemodel
+I1206 20:36:08.550420  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_8200.solverstate
+I1206 20:36:08.551206  8225 solver.cpp:337] Iteration 8200, Testing net (#0)
+I1206 20:36:16.114280  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3524
+I1206 20:36:16.114317  8225 solver.cpp:404]     Test net output #1: loss = 1.81708 (* 1 = 1.81708 loss)
+I1206 20:36:16.272423  8225 solver.cpp:228] Iteration 8200, loss = 1.26683
+I1206 20:36:16.272454  8225 solver.cpp:244]     Train net output #0: loss = 1.26683 (* 1 = 1.26683 loss)
+I1206 20:36:16.272461  8225 sgd_solver.cpp:106] Iteration 8200, lr = 0.001
+I1206 20:37:09.299232  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_8400.caffemodel
+I1206 20:37:09.300693  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_8400.solverstate
+I1206 20:37:09.301430  8225 solver.cpp:337] Iteration 8400, Testing net (#0)
+I1206 20:37:16.865375  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3233
+I1206 20:37:16.865411  8225 solver.cpp:404]     Test net output #1: loss = 1.84372 (* 1 = 1.84372 loss)
+I1206 20:37:17.023228  8225 solver.cpp:228] Iteration 8400, loss = 1.13235
+I1206 20:37:17.023259  8225 solver.cpp:244]     Train net output #0: loss = 1.13235 (* 1 = 1.13235 loss)
+I1206 20:37:17.023267  8225 sgd_solver.cpp:106] Iteration 8400, lr = 0.001
+I1206 20:38:10.041695  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_8600.caffemodel
+I1206 20:38:10.043153  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_8600.solverstate
+I1206 20:38:10.043879  8225 solver.cpp:337] Iteration 8600, Testing net (#0)
+I1206 20:38:17.606025  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3694
+I1206 20:38:17.606063  8225 solver.cpp:404]     Test net output #1: loss = 1.67535 (* 1 = 1.67535 loss)
+I1206 20:38:17.763865  8225 solver.cpp:228] Iteration 8600, loss = 1.15294
+I1206 20:38:17.763895  8225 solver.cpp:244]     Train net output #0: loss = 1.15294 (* 1 = 1.15294 loss)
+I1206 20:38:17.763903  8225 sgd_solver.cpp:106] Iteration 8600, lr = 0.001
+I1206 20:39:10.780102  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_8800.caffemodel
+I1206 20:39:10.781585  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_8800.solverstate
+I1206 20:39:10.782305  8225 solver.cpp:337] Iteration 8800, Testing net (#0)
+I1206 20:39:18.348021  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4142
+I1206 20:39:18.348057  8225 solver.cpp:404]     Test net output #1: loss = 1.60396 (* 1 = 1.60396 loss)
+I1206 20:39:18.505755  8225 solver.cpp:228] Iteration 8800, loss = 1.10891
+I1206 20:39:18.505784  8225 solver.cpp:244]     Train net output #0: loss = 1.10891 (* 1 = 1.10891 loss)
+I1206 20:39:18.505789  8225 sgd_solver.cpp:106] Iteration 8800, lr = 0.001
+I1206 20:40:11.530052  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_9000.caffemodel
+I1206 20:40:11.531582  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_9000.solverstate
+I1206 20:40:11.532305  8225 solver.cpp:337] Iteration 9000, Testing net (#0)
+I1206 20:40:19.096544  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4112
+I1206 20:40:19.096580  8225 solver.cpp:404]     Test net output #1: loss = 1.61053 (* 1 = 1.61053 loss)
+I1206 20:40:19.254478  8225 solver.cpp:228] Iteration 9000, loss = 1.23618
+I1206 20:40:19.254508  8225 solver.cpp:244]     Train net output #0: loss = 1.23618 (* 1 = 1.23618 loss)
+I1206 20:40:19.254516  8225 sgd_solver.cpp:106] Iteration 9000, lr = 0.001
+I1206 20:41:12.267416  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_9200.caffemodel
+I1206 20:41:12.268882  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_9200.solverstate
+I1206 20:41:12.269608  8225 solver.cpp:337] Iteration 9200, Testing net (#0)
+I1206 20:41:19.831802  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3083
+I1206 20:41:19.831838  8225 solver.cpp:404]     Test net output #1: loss = 1.91269 (* 1 = 1.91269 loss)
+I1206 20:41:19.989567  8225 solver.cpp:228] Iteration 9200, loss = 1.17355
+I1206 20:41:19.989595  8225 solver.cpp:244]     Train net output #0: loss = 1.17355 (* 1 = 1.17355 loss)
+I1206 20:41:19.989603  8225 sgd_solver.cpp:106] Iteration 9200, lr = 0.001
+I1206 20:42:13.011867  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_9400.caffemodel
+I1206 20:42:13.013355  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_9400.solverstate
+I1206 20:42:13.014082  8225 solver.cpp:337] Iteration 9400, Testing net (#0)
+I1206 20:42:20.579005  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4015
+I1206 20:42:20.579043  8225 solver.cpp:404]     Test net output #1: loss = 1.62143 (* 1 = 1.62143 loss)
+I1206 20:42:20.737164  8225 solver.cpp:228] Iteration 9400, loss = 1.26887
+I1206 20:42:20.737193  8225 solver.cpp:244]     Train net output #0: loss = 1.26887 (* 1 = 1.26887 loss)
+I1206 20:42:20.737201  8225 sgd_solver.cpp:106] Iteration 9400, lr = 0.001
+I1206 20:43:13.762569  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_9600.caffemodel
+I1206 20:43:13.764000  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_9600.solverstate
+I1206 20:43:13.764731  8225 solver.cpp:337] Iteration 9600, Testing net (#0)
+I1206 20:43:21.329902  8225 solver.cpp:404]     Test net output #0: accuracy = 0.3477
+I1206 20:43:21.329939  8225 solver.cpp:404]     Test net output #1: loss = 1.79383 (* 1 = 1.79383 loss)
+I1206 20:43:21.487391  8225 solver.cpp:228] Iteration 9600, loss = 1.07884
+I1206 20:43:21.487418  8225 solver.cpp:244]     Train net output #0: loss = 1.07884 (* 1 = 1.07884 loss)
+I1206 20:43:21.487423  8225 sgd_solver.cpp:106] Iteration 9600, lr = 0.001
+I1206 20:44:14.511159  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_9800.caffemodel
+I1206 20:44:14.512612  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_9800.solverstate
+I1206 20:44:14.513356  8225 solver.cpp:337] Iteration 9800, Testing net (#0)
+I1206 20:44:22.080551  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4067
+I1206 20:44:22.080595  8225 solver.cpp:404]     Test net output #1: loss = 1.6087 (* 1 = 1.6087 loss)
+I1206 20:44:22.238471  8225 solver.cpp:228] Iteration 9800, loss = 1.02038
+I1206 20:44:22.238498  8225 solver.cpp:244]     Train net output #0: loss = 1.02038 (* 1 = 1.02038 loss)
+I1206 20:44:22.238503  8225 sgd_solver.cpp:106] Iteration 9800, lr = 0.001
+I1206 20:45:15.259312  8225 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_10000.caffemodel
+I1206 20:45:15.260752  8225 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_10000.solverstate
+I1206 20:45:15.341538  8225 solver.cpp:317] Iteration 10000, loss = 1.12157
+I1206 20:45:15.341569  8225 solver.cpp:337] Iteration 10000, Testing net (#0)
+I1206 20:45:22.906847  8225 solver.cpp:404]     Test net output #0: accuracy = 0.4351
+I1206 20:45:22.906883  8225 solver.cpp:404]     Test net output #1: loss = 1.57277 (* 1 = 1.57277 loss)
+I1206 20:45:22.906890  8225 solver.cpp:322] Optimization Done.
+I1206 20:45:22.906894  8225 caffe.cpp:254] Optimization Done.
+I1206 20:46:21.869740  8982 solver.cpp:280] Learning Rate Policy: fixed
+I1206 20:46:21.870218  8982 solver.cpp:337] Iteration 10000, Testing net (#0)
+I1206 20:46:21.870416  8982 blocking_queue.cpp:50] Data layer prefetch queue empty
+I1206 20:46:29.474956  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4352
+I1206 20:46:29.474993  8982 solver.cpp:404]     Test net output #1: loss = 1.57315 (* 1 = 1.57315 loss)
+I1206 20:46:29.639871  8982 solver.cpp:228] Iteration 10000, loss = 1.10836
+I1206 20:46:29.639904  8982 solver.cpp:244]     Train net output #0: loss = 1.10836 (* 1 = 1.10836 loss)
+I1206 20:46:29.639909  8982 sgd_solver.cpp:106] Iteration 10000, lr = 1e-05
+I1206 20:47:22.616770  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_10200.caffemodel
+I1206 20:47:22.618281  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_10200.solverstate
+I1206 20:47:22.619019  8982 solver.cpp:337] Iteration 10200, Testing net (#0)
+I1206 20:47:30.184641  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4292
+I1206 20:47:30.184677  8982 solver.cpp:404]     Test net output #1: loss = 1.58202 (* 1 = 1.58202 loss)
+I1206 20:47:30.341985  8982 solver.cpp:228] Iteration 10200, loss = 1.21136
+I1206 20:47:30.342015  8982 solver.cpp:244]     Train net output #0: loss = 1.21136 (* 1 = 1.21136 loss)
+I1206 20:47:30.342020  8982 sgd_solver.cpp:106] Iteration 10200, lr = 1e-05
+I1206 20:48:23.335590  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_10400.caffemodel
+I1206 20:48:23.337107  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_10400.solverstate
+I1206 20:48:23.337855  8982 solver.cpp:337] Iteration 10400, Testing net (#0)
+I1206 20:48:30.905943  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4601
+I1206 20:48:30.905980  8982 solver.cpp:404]     Test net output #1: loss = 1.47592 (* 1 = 1.47592 loss)
+I1206 20:48:31.063843  8982 solver.cpp:228] Iteration 10400, loss = 1.21288
+I1206 20:48:31.063870  8982 solver.cpp:244]     Train net output #0: loss = 1.21288 (* 1 = 1.21288 loss)
+I1206 20:48:31.063876  8982 sgd_solver.cpp:106] Iteration 10400, lr = 1e-05
+I1206 20:49:24.061942  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_10600.caffemodel
+I1206 20:49:24.063410  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_10600.solverstate
+I1206 20:49:24.064151  8982 solver.cpp:337] Iteration 10600, Testing net (#0)
+I1206 20:49:31.634620  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4712
+I1206 20:49:31.634660  8982 solver.cpp:404]     Test net output #1: loss = 1.44548 (* 1 = 1.44548 loss)
+I1206 20:49:31.792547  8982 solver.cpp:228] Iteration 10600, loss = 1.11552
+I1206 20:49:31.792577  8982 solver.cpp:244]     Train net output #0: loss = 1.11552 (* 1 = 1.11552 loss)
+I1206 20:49:31.792585  8982 sgd_solver.cpp:106] Iteration 10600, lr = 1e-05
+I1206 20:50:24.789698  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_10800.caffemodel
+I1206 20:50:24.791153  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_10800.solverstate
+I1206 20:50:24.791889  8982 solver.cpp:337] Iteration 10800, Testing net (#0)
+I1206 20:50:32.360762  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4754
+I1206 20:50:32.360800  8982 solver.cpp:404]     Test net output #1: loss = 1.43783 (* 1 = 1.43783 loss)
+I1206 20:50:32.518151  8982 solver.cpp:228] Iteration 10800, loss = 1.08336
+I1206 20:50:32.518179  8982 solver.cpp:244]     Train net output #0: loss = 1.08336 (* 1 = 1.08336 loss)
+I1206 20:50:32.518187  8982 sgd_solver.cpp:106] Iteration 10800, lr = 1e-05
+I1206 20:51:25.524827  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_11000.caffemodel
+I1206 20:51:25.526275  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_11000.solverstate
+I1206 20:51:25.527012  8982 solver.cpp:337] Iteration 11000, Testing net (#0)
+I1206 20:51:33.095176  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4871
+I1206 20:51:33.095212  8982 solver.cpp:404]     Test net output #1: loss = 1.42829 (* 1 = 1.42829 loss)
+I1206 20:51:33.252588  8982 solver.cpp:228] Iteration 11000, loss = 1.03017
+I1206 20:51:33.252617  8982 solver.cpp:244]     Train net output #0: loss = 1.03017 (* 1 = 1.03017 loss)
+I1206 20:51:33.252622  8982 sgd_solver.cpp:106] Iteration 11000, lr = 1e-05
+I1206 20:52:26.266919  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_11200.caffemodel
+I1206 20:52:26.268450  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_11200.solverstate
+I1206 20:52:26.269210  8982 solver.cpp:337] Iteration 11200, Testing net (#0)
+^[[A^[[BI1206 20:52:33.837326  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4909
+I1206 20:52:33.837363  8982 solver.cpp:404]     Test net output #1: loss = 1.42392 (* 1 = 1.42392 loss)
+I1206 20:52:33.995149  8982 solver.cpp:228] Iteration 11200, loss = 1.16324
+I1206 20:52:33.995178  8982 solver.cpp:244]     Train net output #0: loss = 1.16324 (* 1 = 1.16324 loss)
+I1206 20:52:33.995183  8982 sgd_solver.cpp:106] Iteration 11200, lr = 1e-05
+I1206 20:53:27.005286  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_11400.caffemodel
+I1206 20:53:27.006759  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_11400.solverstate
+I1206 20:53:27.007499  8982 solver.cpp:337] Iteration 11400, Testing net (#0)
+I1206 20:53:34.577739  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4895
+I1206 20:53:34.577772  8982 solver.cpp:404]     Test net output #1: loss = 1.42046 (* 1 = 1.42046 loss)
+I1206 20:53:34.735329  8982 solver.cpp:228] Iteration 11400, loss = 0.982013
+I1206 20:53:34.735358  8982 solver.cpp:244]     Train net output #0: loss = 0.982013 (* 1 = 0.982013 loss)
+I1206 20:53:34.735363  8982 sgd_solver.cpp:106] Iteration 11400, lr = 1e-05
+I1206 20:54:27.746089  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_11600.caffemodel
+I1206 20:54:27.747555  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_11600.solverstate
+I1206 20:54:27.748288  8982 solver.cpp:337] Iteration 11600, Testing net (#0)
+I1206 20:54:35.318053  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4905
+I1206 20:54:35.318089  8982 solver.cpp:404]     Test net output #1: loss = 1.4186 (* 1 = 1.4186 loss)
+I1206 20:54:35.475822  8982 solver.cpp:228] Iteration 11600, loss = 1.18505
+I1206 20:54:35.475852  8982 solver.cpp:244]     Train net output #0: loss = 1.18505 (* 1 = 1.18505 loss)
+I1206 20:54:35.475857  8982 sgd_solver.cpp:106] Iteration 11600, lr = 1e-05
+I1206 20:55:28.482280  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_11800.caffemodel
+I1206 20:55:28.483741  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_11800.solverstate
+I1206 20:55:28.484479  8982 solver.cpp:337] Iteration 11800, Testing net (#0)
+I1206 20:55:36.053931  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4965
+I1206 20:55:36.053964  8982 solver.cpp:404]     Test net output #1: loss = 1.41936 (* 1 = 1.41936 loss)
+I1206 20:55:36.211413  8982 solver.cpp:228] Iteration 11800, loss = 1.02375
+I1206 20:55:36.211441  8982 solver.cpp:244]     Train net output #0: loss = 1.02375 (* 1 = 1.02375 loss)
+I1206 20:55:36.211447  8982 sgd_solver.cpp:106] Iteration 11800, lr = 1e-05
+I1206 20:56:29.222698  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_12000.caffemodel
+I1206 20:56:29.224146  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_12000.solverstate
+I1206 20:56:29.224900  8982 solver.cpp:337] Iteration 12000, Testing net (#0)
+I1206 20:56:36.792765  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4963
+I1206 20:56:36.792820  8982 solver.cpp:404]     Test net output #1: loss = 1.41669 (* 1 = 1.41669 loss)
+I1206 20:56:36.950498  8982 solver.cpp:228] Iteration 12000, loss = 0.878305
+I1206 20:56:36.950525  8982 solver.cpp:244]     Train net output #0: loss = 0.878305 (* 1 = 0.878305 loss)
+I1206 20:56:36.950531  8982 sgd_solver.cpp:106] Iteration 12000, lr = 1e-05
+I1206 20:57:29.956203  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_12200.caffemodel
+I1206 20:57:29.957674  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_12200.solverstate
+I1206 20:57:29.958415  8982 solver.cpp:337] Iteration 12200, Testing net (#0)
+I1206 20:57:37.528230  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4926
+I1206 20:57:37.528266  8982 solver.cpp:404]     Test net output #1: loss = 1.41562 (* 1 = 1.41562 loss)
+I1206 20:57:37.685456  8982 solver.cpp:228] Iteration 12200, loss = 0.84221
+I1206 20:57:37.685487  8982 solver.cpp:244]     Train net output #0: loss = 0.84221 (* 1 = 0.84221 loss)
+I1206 20:57:37.685492  8982 sgd_solver.cpp:106] Iteration 12200, lr = 1e-05
+I1206 20:58:30.696122  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_12400.caffemodel
+I1206 20:58:30.697630  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_12400.solverstate
+I1206 20:58:30.698361  8982 solver.cpp:337] Iteration 12400, Testing net (#0)
+I1206 20:58:38.265585  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5014
+I1206 20:58:38.265621  8982 solver.cpp:404]     Test net output #1: loss = 1.4151 (* 1 = 1.4151 loss)
+I1206 20:58:38.423430  8982 solver.cpp:228] Iteration 12400, loss = 1.0294
+I1206 20:58:38.423458  8982 solver.cpp:244]     Train net output #0: loss = 1.0294 (* 1 = 1.0294 loss)
+I1206 20:58:38.423465  8982 sgd_solver.cpp:106] Iteration 12400, lr = 1e-05
+I1206 20:59:31.428283  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_12600.caffemodel
+I1206 20:59:31.429764  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_12600.solverstate
+I1206 20:59:31.430495  8982 solver.cpp:337] Iteration 12600, Testing net (#0)
+I1206 20:59:39.000874  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4988
+I1206 20:59:39.000911  8982 solver.cpp:404]     Test net output #1: loss = 1.4113 (* 1 = 1.4113 loss)
+I1206 20:59:39.158538  8982 solver.cpp:228] Iteration 12600, loss = 0.975096
+I1206 20:59:39.158566  8982 solver.cpp:244]     Train net output #0: loss = 0.975096 (* 1 = 0.975096 loss)
+I1206 20:59:39.158571  8982 sgd_solver.cpp:106] Iteration 12600, lr = 1e-05
+I1206 21:00:32.165722  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_12800.caffemodel
+I1206 21:00:32.167214  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_12800.solverstate
+I1206 21:00:32.167948  8982 solver.cpp:337] Iteration 12800, Testing net (#0)
+I1206 21:00:39.736598  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4944
+I1206 21:00:39.736635  8982 solver.cpp:404]     Test net output #1: loss = 1.41732 (* 1 = 1.41732 loss)
+I1206 21:00:39.894455  8982 solver.cpp:228] Iteration 12800, loss = 1.11668
+I1206 21:00:39.894493  8982 solver.cpp:244]     Train net output #0: loss = 1.11668 (* 1 = 1.11668 loss)
+I1206 21:00:39.894501  8982 sgd_solver.cpp:106] Iteration 12800, lr = 1e-05
+I1206 21:01:32.897634  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_13000.caffemodel
+I1206 21:01:32.899132  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_13000.solverstate
+I1206 21:01:32.899866  8982 solver.cpp:337] Iteration 13000, Testing net (#0)
+I1206 21:01:40.466984  8982 solver.cpp:404]     Test net output #0: accuracy = 0.501
+I1206 21:01:40.467020  8982 solver.cpp:404]     Test net output #1: loss = 1.40867 (* 1 = 1.40867 loss)
+I1206 21:01:40.624505  8982 solver.cpp:228] Iteration 13000, loss = 1.10018
+I1206 21:01:40.624532  8982 solver.cpp:244]     Train net output #0: loss = 1.10018 (* 1 = 1.10018 loss)
+I1206 21:01:40.624538  8982 sgd_solver.cpp:106] Iteration 13000, lr = 1e-05
+I1206 21:02:33.628252  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_13200.caffemodel
+I1206 21:02:33.629712  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_13200.solverstate
+I1206 21:02:33.630450  8982 solver.cpp:337] Iteration 13200, Testing net (#0)
+I1206 21:02:41.198804  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5032
+I1206 21:02:41.198835  8982 solver.cpp:404]     Test net output #1: loss = 1.40848 (* 1 = 1.40848 loss)
+I1206 21:02:41.356370  8982 solver.cpp:228] Iteration 13200, loss = 1.00879
+I1206 21:02:41.356400  8982 solver.cpp:244]     Train net output #0: loss = 1.00879 (* 1 = 1.00879 loss)
+I1206 21:02:41.356405  8982 sgd_solver.cpp:106] Iteration 13200, lr = 1e-05
+I1206 21:03:34.357007  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_13400.caffemodel
+I1206 21:03:34.358455  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_13400.solverstate
+I1206 21:03:34.359200  8982 solver.cpp:337] Iteration 13400, Testing net (#0)
+I1206 21:03:41.927224  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4958
+I1206 21:03:41.927261  8982 solver.cpp:404]     Test net output #1: loss = 1.41355 (* 1 = 1.41355 loss)
+I1206 21:03:42.085032  8982 solver.cpp:228] Iteration 13400, loss = 1.06005
+I1206 21:03:42.085062  8982 solver.cpp:244]     Train net output #0: loss = 1.06005 (* 1 = 1.06005 loss)
+I1206 21:03:42.085070  8982 sgd_solver.cpp:106] Iteration 13400, lr = 1e-05
+I1206 21:04:35.089429  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_13600.caffemodel
+I1206 21:04:35.090889  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_13600.solverstate
+I1206 21:04:35.091624  8982 solver.cpp:337] Iteration 13600, Testing net (#0)
+I1206 21:04:42.659029  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5041
+I1206 21:04:42.659067  8982 solver.cpp:404]     Test net output #1: loss = 1.40897 (* 1 = 1.40897 loss)
+I1206 21:04:42.816804  8982 solver.cpp:228] Iteration 13600, loss = 1.02221
+I1206 21:04:42.816835  8982 solver.cpp:244]     Train net output #0: loss = 1.02221 (* 1 = 1.02221 loss)
+I1206 21:04:42.816843  8982 sgd_solver.cpp:106] Iteration 13600, lr = 1e-05
+I1206 21:05:35.831877  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_13800.caffemodel
+I1206 21:05:35.833346  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_13800.solverstate
+I1206 21:05:35.834084  8982 solver.cpp:337] Iteration 13800, Testing net (#0)
+I1206 21:05:43.403780  8982 solver.cpp:404]     Test net output #0: accuracy = 0.505
+I1206 21:05:43.403815  8982 solver.cpp:404]     Test net output #1: loss = 1.41086 (* 1 = 1.41086 loss)
+I1206 21:05:43.561609  8982 solver.cpp:228] Iteration 13800, loss = 1.13153
+I1206 21:05:43.561638  8982 solver.cpp:244]     Train net output #0: loss = 1.13153 (* 1 = 1.13153 loss)
+I1206 21:05:43.561643  8982 sgd_solver.cpp:106] Iteration 13800, lr = 1e-05
+I1206 21:06:36.574539  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_14000.caffemodel
+I1206 21:06:36.576524  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_14000.solverstate
+I1206 21:06:36.577680  8982 solver.cpp:337] Iteration 14000, Testing net (#0)
+I1206 21:06:44.146813  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4985
+I1206 21:06:44.146852  8982 solver.cpp:404]     Test net output #1: loss = 1.4077 (* 1 = 1.4077 loss)
+I1206 21:06:44.304803  8982 solver.cpp:228] Iteration 14000, loss = 0.985804
+I1206 21:06:44.304832  8982 solver.cpp:244]     Train net output #0: loss = 0.985804 (* 1 = 0.985804 loss)
+I1206 21:06:44.304837  8982 sgd_solver.cpp:106] Iteration 14000, lr = 1e-05
+I1206 21:07:37.314198  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_14200.caffemodel
+I1206 21:07:37.315641  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_14200.solverstate
+I1206 21:07:37.316434  8982 solver.cpp:337] Iteration 14200, Testing net (#0)
+I1206 21:07:44.886759  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5026
+I1206 21:07:44.886795  8982 solver.cpp:404]     Test net output #1: loss = 1.40673 (* 1 = 1.40673 loss)
+I1206 21:07:45.044013  8982 solver.cpp:228] Iteration 14200, loss = 1.13347
+I1206 21:07:45.044041  8982 solver.cpp:244]     Train net output #0: loss = 1.13347 (* 1 = 1.13347 loss)
+I1206 21:07:45.044046  8982 sgd_solver.cpp:106] Iteration 14200, lr = 1e-05
+I1206 21:08:38.058313  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_14400.caffemodel
+I1206 21:08:38.060292  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_14400.solverstate
+I1206 21:08:38.061436  8982 solver.cpp:337] Iteration 14400, Testing net (#0)
+I1206 21:08:45.630738  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5037
+I1206 21:08:45.630772  8982 solver.cpp:404]     Test net output #1: loss = 1.4093 (* 1 = 1.4093 loss)
+I1206 21:08:45.788410  8982 solver.cpp:228] Iteration 14400, loss = 0.946851
+I1206 21:08:45.788440  8982 solver.cpp:244]     Train net output #0: loss = 0.946851 (* 1 = 0.946851 loss)
+I1206 21:08:45.788445  8982 sgd_solver.cpp:106] Iteration 14400, lr = 1e-05
+I1206 21:09:38.803393  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_14600.caffemodel
+I1206 21:09:38.804874  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_14600.solverstate
+I1206 21:09:38.805613  8982 solver.cpp:337] Iteration 14600, Testing net (#0)
+I1206 21:09:46.374795  8982 solver.cpp:404]     Test net output #0: accuracy = 0.501
+I1206 21:09:46.374833  8982 solver.cpp:404]     Test net output #1: loss = 1.40691 (* 1 = 1.40691 loss)
+I1206 21:09:46.532199  8982 solver.cpp:228] Iteration 14600, loss = 0.847423
+I1206 21:09:46.532229  8982 solver.cpp:244]     Train net output #0: loss = 0.847423 (* 1 = 0.847423 loss)
+I1206 21:09:46.532233  8982 sgd_solver.cpp:106] Iteration 14600, lr = 1e-05
+I1206 21:10:39.540563  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_14800.caffemodel
+I1206 21:10:39.542037  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_14800.solverstate
+I1206 21:10:39.542783  8982 solver.cpp:337] Iteration 14800, Testing net (#0)
+I1206 21:10:47.110671  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5023
+I1206 21:10:47.110710  8982 solver.cpp:404]     Test net output #1: loss = 1.40572 (* 1 = 1.40572 loss)
+I1206 21:10:47.268412  8982 solver.cpp:228] Iteration 14800, loss = 0.943812
+I1206 21:10:47.268441  8982 solver.cpp:244]     Train net output #0: loss = 0.943812 (* 1 = 0.943812 loss)
+I1206 21:10:47.268447  8982 sgd_solver.cpp:106] Iteration 14800, lr = 1e-05
+I1206 21:11:40.267797  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_15000.caffemodel
+I1206 21:11:40.269240  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_15000.solverstate
+I1206 21:11:40.269986  8982 solver.cpp:337] Iteration 15000, Testing net (#0)
+I1206 21:11:47.837252  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5034
+I1206 21:11:47.837287  8982 solver.cpp:404]     Test net output #1: loss = 1.40564 (* 1 = 1.40564 loss)
+I1206 21:11:47.994921  8982 solver.cpp:228] Iteration 15000, loss = 1.02931
+I1206 21:11:47.994949  8982 solver.cpp:244]     Train net output #0: loss = 1.02931 (* 1 = 1.02931 loss)
+I1206 21:11:47.994954  8982 sgd_solver.cpp:106] Iteration 15000, lr = 1e-05
+I1206 21:12:41.005020  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_15200.caffemodel
+I1206 21:12:41.006464  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_15200.solverstate
+I1206 21:12:41.007215  8982 solver.cpp:337] Iteration 15200, Testing net (#0)
+I1206 21:12:48.575875  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5012
+I1206 21:12:48.575911  8982 solver.cpp:404]     Test net output #1: loss = 1.40295 (* 1 = 1.40295 loss)
+I1206 21:12:48.733491  8982 solver.cpp:228] Iteration 15200, loss = 1.07037
+I1206 21:12:48.733521  8982 solver.cpp:244]     Train net output #0: loss = 1.07037 (* 1 = 1.07037 loss)
+I1206 21:12:48.733527  8982 sgd_solver.cpp:106] Iteration 15200, lr = 1e-05
+I1206 21:13:41.743263  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_15400.caffemodel
+I1206 21:13:41.744700  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_15400.solverstate
+I1206 21:13:41.745465  8982 solver.cpp:337] Iteration 15400, Testing net (#0)
+I1206 21:13:49.312551  8982 solver.cpp:404]     Test net output #0: accuracy = 0.4988
+I1206 21:13:49.312587  8982 solver.cpp:404]     Test net output #1: loss = 1.40938 (* 1 = 1.40938 loss)
+I1206 21:13:49.470191  8982 solver.cpp:228] Iteration 15400, loss = 1.07774
+I1206 21:13:49.470219  8982 solver.cpp:244]     Train net output #0: loss = 1.07774 (* 1 = 1.07774 loss)
+I1206 21:13:49.470223  8982 sgd_solver.cpp:106] Iteration 15400, lr = 1e-05
+I1206 21:14:42.476326  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_15600.caffemodel
+I1206 21:14:42.477790  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_15600.solverstate
+I1206 21:14:42.478535  8982 solver.cpp:337] Iteration 15600, Testing net (#0)
+I1206 21:14:50.048269  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5068
+I1206 21:14:50.048302  8982 solver.cpp:404]     Test net output #1: loss = 1.4 (* 1 = 1.4 loss)
+I1206 21:14:50.205828  8982 solver.cpp:228] Iteration 15600, loss = 1.0796
+I1206 21:14:50.205858  8982 solver.cpp:244]     Train net output #0: loss = 1.0796 (* 1 = 1.0796 loss)
+I1206 21:14:50.205867  8982 sgd_solver.cpp:106] Iteration 15600, lr = 1e-05
+I1206 21:15:43.213479  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_15800.caffemodel
+I1206 21:15:43.214961  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_15800.solverstate
+I1206 21:15:43.215703  8982 solver.cpp:337] Iteration 15800, Testing net (#0)
+I1206 21:15:50.784884  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5063
+I1206 21:15:50.784919  8982 solver.cpp:404]     Test net output #1: loss = 1.40137 (* 1 = 1.40137 loss)
+I1206 21:15:50.942613  8982 solver.cpp:228] Iteration 15800, loss = 0.985511
+I1206 21:15:50.942643  8982 solver.cpp:244]     Train net output #0: loss = 0.985511 (* 1 = 0.985511 loss)
+I1206 21:15:50.942648  8982 sgd_solver.cpp:106] Iteration 15800, lr = 1e-05
+I1206 21:16:43.949025  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16000.caffemodel
+I1206 21:16:43.950467  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16000.solverstate
+I1206 21:16:43.951215  8982 solver.cpp:337] Iteration 16000, Testing net (#0)
+I1206 21:16:51.517639  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5018
+I1206 21:16:51.517675  8982 solver.cpp:404]     Test net output #1: loss = 1.40683 (* 1 = 1.40683 loss)
+I1206 21:16:51.675587  8982 solver.cpp:228] Iteration 16000, loss = 1.05056
+I1206 21:16:51.675616  8982 solver.cpp:244]     Train net output #0: loss = 1.05056 (* 1 = 1.05056 loss)
+I1206 21:16:51.675621  8982 sgd_solver.cpp:106] Iteration 16000, lr = 1e-05
+I1206 21:17:44.681577  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16200.caffemodel
+I1206 21:17:44.683040  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16200.solverstate
+I1206 21:17:44.683792  8982 solver.cpp:337] Iteration 16200, Testing net (#0)
+I1206 21:17:52.249713  8982 solver.cpp:404]     Test net output #0: accuracy = 0.505
+I1206 21:17:52.249749  8982 solver.cpp:404]     Test net output #1: loss = 1.40142 (* 1 = 1.40142 loss)
+I1206 21:17:52.407496  8982 solver.cpp:228] Iteration 16200, loss = 1.00009
+I1206 21:17:52.407526  8982 solver.cpp:244]     Train net output #0: loss = 1.00009 (* 1 = 1.00009 loss)
+I1206 21:17:52.407531  8982 sgd_solver.cpp:106] Iteration 16200, lr = 1e-05
+I1206 21:18:45.406085  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16400.caffemodel
+I1206 21:18:45.407524  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16400.solverstate
+I1206 21:18:45.408267  8982 solver.cpp:337] Iteration 16400, Testing net (#0)
+I1206 21:18:52.979774  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5085
+I1206 21:18:52.979811  8982 solver.cpp:404]     Test net output #1: loss = 1.40465 (* 1 = 1.40465 loss)
+I1206 21:18:53.137576  8982 solver.cpp:228] Iteration 16400, loss = 1.15483
+I1206 21:18:53.137605  8982 solver.cpp:244]     Train net output #0: loss = 1.15483 (* 1 = 1.15483 loss)
+I1206 21:18:53.137610  8982 sgd_solver.cpp:106] Iteration 16400, lr = 1e-05
+I1206 21:19:46.146862  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16600.caffemodel
+I1206 21:19:46.148315  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16600.solverstate
+I1206 21:19:46.149075  8982 solver.cpp:337] Iteration 16600, Testing net (#0)
+I1206 21:19:53.716604  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5032
+I1206 21:19:53.716641  8982 solver.cpp:404]     Test net output #1: loss = 1.40127 (* 1 = 1.40127 loss)
+I1206 21:19:53.874219  8982 solver.cpp:228] Iteration 16600, loss = 0.996938
+I1206 21:19:53.874248  8982 solver.cpp:244]     Train net output #0: loss = 0.996938 (* 1 = 0.996938 loss)
+I1206 21:19:53.874253  8982 sgd_solver.cpp:106] Iteration 16600, lr = 1e-05
+I1206 21:20:46.882587  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16800.caffemodel
+I1206 21:20:46.884032  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16800.solverstate
+I1206 21:20:46.884778  8982 solver.cpp:337] Iteration 16800, Testing net (#0)
+I1206 21:20:54.452168  8982 solver.cpp:404]     Test net output #0: accuracy = 0.5047
+I1206 21:20:54.452204  8982 solver.cpp:404]     Test net output #1: loss = 1.40054 (* 1 = 1.40054 loss)
+I1206 21:20:54.609871  8982 solver.cpp:228] Iteration 16800, loss = 1.19014
+I1206 21:20:54.609900  8982 solver.cpp:244]     Train net output #0: loss = 1.19014 (* 1 = 1.19014 loss)
+I1206 21:20:54.609906  8982 sgd_solver.cpp:106] Iteration 16800, lr = 1e-05
+I1206 21:21:40.705785  8982 solver.cpp:454] Snapshotting to binary proto file model_weights/data_aug_mix_iter_16974.caffemodel
+I1206 21:21:40.707232  8982 sgd_solver.cpp:273] Snapshotting solver state to binary proto file model_weights/data_aug_mix_iter_16974.solverstate
+I1206 21:21:40.707878  8982 solver.cpp:301] Optimization stopped early.
+I1206 21:21:40.707885  8982 caffe.cpp:254] Optimization Done.
